@@ -5,6 +5,7 @@ Library    String
 
 *** Keywords ***
 Open Browser To LinkedIn Login Page
+    [Documentation]    This Keyword is for opening Chrome browser and navigating to LinkedIn, and Maximizing the window.
     Open Browser    https://www.linkedin.com/uas/login      chrome
     Maximize Browser Window
 
@@ -15,6 +16,7 @@ Log In To LinkedIn With Username[${USERNAME}] And Password[${PASSWORD}]
      Click Button  //button[@aria-label='Sign in']
 
 Search For [${COMPANYNAME}] in the search field on LinkedIn and open it
+    [Documentation]  This keyword is for searching any ${COMPANYNAME} from the main page on LinkedIn.
     Wait Until Page Contains Element    //input[@aria-label='Search']
     Click Element    //input[@aria-label='Search']
     Input Text    //input[@aria-label='Search']    ${COMPANYNAME}
@@ -23,10 +25,12 @@ Search For [${COMPANYNAME}] in the search field on LinkedIn and open it
     Click Element    //ul[@role='presentation']//div[@class='display-flex' and contains(.,'${COMPANYNAME}')]
 
 Navigate to the [${TABNAME}] tab on the company LinkedIn page
+    [Documentation]  This keyword is for navigating through different tabs on a Company LinkedIn page. 
     Wait Until Page Contains Element    //nav[@aria-label='Organization’s page navigation']
     Click Element                        //nav[@aria-label='Organization’s page navigation']//a[contains(.,'${TABNAME}')]
 
 Search for the job [${JOBTITLE}] on the company LinkedIn page and open it
+    [Documentation]  This keyword is for searching any ${JOBTITLE} on a company page under the Jobs tab.
     Wait Until Page Contains Element    //input[@aria-label='Search' and @placeholder='Job title or keyword']
     Click Element    //input[@aria-label='Search' and @placeholder='Job title or keyword']
     Input Text    //input[@aria-label='Search' and @placeholder='Job title or keyword']    ${JOBTITLE}
